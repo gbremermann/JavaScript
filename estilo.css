@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: bisque;
+}
+header{
+    text-align: center;
+    
+}
+
+.encabezado {
+    background-color: #fafafa;
+    height: 16rem;
+    width: 100%;
+    padding-top: 1rem;
+    border-bottom: 2px solid orange;
+}
+
+header div h1 a {
+    padding-top: 2rem;
+    text-decoration: none;
+    color: red;
+    font-size: 6.2rem;
+    max-width: 90%;
+    font-weight: 540;
+}
+
+header ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 2rem;
+    font-size: 3rem;
+    width: 100%;
+}
+
+.nav {
+    height: 3rem;
+    font-size: 2.5rem;
+    margin-left: 3rem;
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.sec {
+    color: gray;
+}
+
+.botonRegistrarse {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    background-color: rgb(211, 139, 5);
+    border: 2px red solid;
+    border-radius: 1px;
+}
+
+.botonRegistrarse:hover {
+    background-color: red;
+    border: orange 2px solid;
+    border-radius: 2rem;
+}
+
+.botonRegistrarse a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.buscar {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 18rem;
+}
+
+.navMenu {
+    margin-bottom: 1rem;
+}
+
+.menuDesplegable {
+    background-color: rgb(250, 179, 49);
+    width: 100vw;
+}
+
+.nav1 {
+    width: 100vw;
+}
+
+.productos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 11rem;
+    margin-bottom: 5rem;
+}
+
+footer{
+    margin-top: 4rem;
+    font-size: 2rem;
+    text-align: center;
+    background-color: orange;
+}
+
+.tituloFooter{
+    font-size: 4rem;
+    color: red;
+}
+
+.aFooter{
+    align-items: center;
+}
+.pie ul li a {
+    text-decoration: none;
+    font-size: 3rem;
+    margin: 4rem;
+    color: gray;
+}
+.pie ul li {
+    display: inline-block;
+}
+.pie {
+    background: orange;
+    align-items: center;
+    margin-top: 5rem;
+  }
