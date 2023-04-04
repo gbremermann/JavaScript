@@ -16,7 +16,7 @@ else if (respuesta == 1 || respuesta == 2 || respuesta == 3) {
         alert("El codigo de descuento " + entrada + " no es valido");
         entrada = prompt("Ingrese su codigo correctamente, verifique escribirlo en letras mayusculas");
     }
-    saludar();
+    alert ("Su codigo fue aprobado, el descuento se vera reflejado al final de la compra");
 }
 
 
