@@ -1,8 +1,8 @@
-1er Pre-Entrega curso JavaScript
+2da Pre-Entrega curso JavaScript
 Comision: #39505
 Alumno: Guillermo Bremermann
 
-El proyecto es acerca del sitio web de una pyme, que fabrica sillones, sillas, mesas y respaldos de sommier.
-La misma se encuentra haciendo descuentos en sillones de determinadas medidas.
+En esta segunda Pre entrega, se utiliza un alert para dar la bienvenida al cliente, 
+y da aviso que hasta fin de mes hay una promocion con descuentos, y mediante la clase date se hace el calculo de dias que restan para que dicha oferta finalice.
 
-Mediante los conocimientos vistos hasta el momento, se guiará al usuario del sitio, para que pueda acceder a estos descuentos o no, segun las necesidades del cliente. 
+Luego se crea un array de objeto para describir los productos que se venden y mediante el metodo filter se le solicita al usuario que revise si se comercializa el producto que esta buscando. 
