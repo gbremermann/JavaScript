@@ -32,7 +32,3 @@ formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     aprobarSuscripcion(e.target);
   });
-
-  document.getElementById("nombre").value = "";
-  document.getElementById("direccion").value = "";
-  document.getElementById("email").value = "";
