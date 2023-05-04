@@ -1,8 +1,9 @@
-2da Pre-Entrega curso JavaScript
+3ra Pre-Entrega curso JavaScript
 Comision: #39505
 Alumno: Guillermo Bremermann
 
-En esta segunda Pre entrega, se utiliza un alert para dar la bienvenida al cliente, 
-y da aviso que hasta fin de mes hay una promocion con descuentos, y mediante la clase date se hace el calculo de dias que restan para que dicha oferta finalice.
+En esta tercera Pre entrega,  se accedio a los elementos de DOM, mediante el ID para modificar un h2 en la pagina de inicio, y tambien para diferenciar mediante los nombres de CLASE, las diferentes medidas de sillones disponibles.
 
-Luego se crea un array de objeto para describir los productos que se venden y mediante el metodo filter se le solicita al usuario que revise si se comercializa el producto que esta buscando. 
+Luego, se utiliza, mediante el boton Registrarse, se accede a la pagina de suscripciones , y con mediante evento con el boton Enviar, se realiza la suscripcion de los usuarios, y se realiza la carga de los mismos al array de suscriptos.
+
+Tambien se utiliza el metodo stringify , para cargar un array al localStorage.
