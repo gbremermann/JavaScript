@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "luxon": "^3.3.0"
+  },
+  "name": "entrega-final-java-script",
+  "description": "3ra Pre-Entrega curso JavaScript\r Comision: #39505\r Alumno: Guillermo Bremermann",
+  "version": "1.0.0",
+  "main": "indexmain.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coderhouse",
+    "javascript",
+    "entregafinal"
+  ],
+  "author": "Guillermo Bremermann",
+  "license": "ISC"
+}
