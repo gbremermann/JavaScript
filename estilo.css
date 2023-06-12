@@ -132,3 +132,16 @@ footer{
     align-items: center;
     margin-top: 5rem;
   }
+
+
+  .buscador{
+    width: 100px;
+    background-color: red;
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+
+  .centrar{
+    padding-top: 10rem;
+    text-align: center;
+  }
