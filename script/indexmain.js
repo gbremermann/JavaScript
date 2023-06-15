@@ -40,15 +40,15 @@ subti.innerHTML = "<strong> SOFA INDIVIDUAL </strong>";
 
     },4000);
 
-const getData = async () => {
+// const getData = async () => {
  
-  const fetchedData = await fetch("../public/data.json");
-  console.log("fetch", fetchedData)
-  const dataJSON = await fetchedData.json();
-  console.log("dataJSON", dataJSON)
+//   const fetchedData = await fetch("../public/data.json");
+//   console.log("fetch", fetchedData)
+//   const dataJSON = await fetchedData.json();
+//   console.log("dataJSON", dataJSON)
 
-  return dataJSON;
-}
+//   return dataJSON;
+// }
 
 const eventoFuturo = (res) => {
   return new Promise((resolve, reject) => {
@@ -140,13 +140,26 @@ for (let producto of product){
 boton.addEventListener("click", filtrar);
 
 
-let response;
-getData().then(resp => console.log(resp));
+// let response;
+// getData().then(resp => console.log(resp));
 
-console.log(response)
+// console.log(response)
 
 
-localStorage.setItem("product", JSON.stringify(product));
+
+
+
+//a continuacion traigo los productos desde el archivo .json
+
+function cargarP(){
+  fetch('./public/data.json')
+    .then (respuesta => respuesta.json())
+    .then(respuesta => console.log(respuesta))
+  }
+  
+cargarP();
+
+// a continuacion le agrego 2 productos al ARRAY product, pero en realidad quisiera agregarselos al array que traje del archivo data.json
 
 const recuperadas = localStorage.getItem("product");
 const convertido = JSON.parse(recuperadas);
@@ -158,8 +171,17 @@ convertido.push({
   precio: 10500,
 });
 
+convertido.push({
+  modelo: "silla matera",
+  tamano: "doble",
+  material: "cuero",
+  precio: 17500,
+})
+
+
 localStorage.setItem("articulo Nuevo", JSON.stringify(convertido));
-//UNICAMENTE  DEJO EL CONSOLE.LOG POR NO PODER MOSTRAR EN EL LOCAL STORAGE LOS ELEMENTOS DE LOS OBJETOS
 console.log(convertido);
+
+
 
 
