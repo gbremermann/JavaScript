@@ -40,148 +40,76 @@ subti.innerHTML = "<strong> SOFA INDIVIDUAL </strong>";
 
     },4000);
 
-// const getData = async () => {
- 
-//   const fetchedData = await fetch("../public/data.json");
-//   console.log("fetch", fetchedData)
-//   const dataJSON = await fetchedData.json();
-//   console.log("dataJSON", dataJSON)
 
-//   return dataJSON;
-// }
 
-const eventoFuturo = (res) => {
-  return new Promise((resolve, reject) => {
-    if (misProductos.length == 10) {
-      resolve("promesa cumplida ");
-    } else {
-      reject("promesa rechazada");
-    }
+// A continuacion traigo los productos desde el archivo .json
+const cargarP = async () => {
+  try {
+    const respuesta = await fetch('./public/data.json');
+    const respuestaJSON = await respuesta.json();
+    return respuestaJSON;
+
+  } catch (err) {
+    throw ("Error al Obtener la data del archivo data.json")
+  }
+}
+
+let productosDelJSON;
+
+cargarP().then(JSONProductsArray => {
+  localStorage.setItem("products", JSON.stringify(JSONProductsArray)); // GUARDO EN EL LOCAL STORAGE LOS PRODUCTOS TRAIDOS DEL JSON
+
+  const productosDelLocalStorage = JSON.parse(localStorage.getItem("products")); // RECUPERO LOS PRODUCTOS DEL LOCAL STORAGE
+
+  // AGREGO DOS PRODUCTOS NUEVOS Y ACTUALIZO LOS PRODUCTOS EN LOCAL STORAGE
+  productosDelLocalStorage.push({
+    modelo: "poltrona",
+    tamano: "individual",
+    material: "cuero",
+    precio: 10500,
   });
-};
-//PROMESA CUMPLIDA
-eventoFuturo(true)
-  .then((response) => {})
-  .catch((error) => {});
 
-let product = [
-  {
-    modelo: "respaldo de sommier",
-    tamano: "1 plaza",
-    material: "chenille",
-    precio: 6000,
-  },
-  {
-    modelo: "respaldo de sommier",
-    tamano: "2 plazas",
-    material: "chenille",
-    precio: 9000,
-  },
-  { modelo: "silla", tamano: "individual", material: "chenille", precio: 7000 },
-  { modelo: "mesa", tamano: "1.20", material: "paraiso", precio: 26000 },
-  {
-    modelo: "sillon roma",
-    tamano: "1 cuerpo",
-    material: "chenille",
-    precio: 15000,
-  },
-  {
-    modelo: "sillon roma",
-    tamano: "2 cuerpos",
-    material: "chenille",
-    precio: 25000,
-  },
-  {
-    modelo: "sillon roma",
-    tamano: "3 cuerpos",
-    material: "chenille",
-    precio: 35000,
-  },
-  {
-    modelo: "sillon paris",
-    tamano: "1 cuerpo",
-    material: "chenille",
-    precio: 13000,
-  },
-  {
-    modelo: "sillon paris",
-    tamano: "2 cuerpos",
-    material: "chenille",
-    precio: 23000,
-  },
-  {
-    modelo: "sillon paris",
-    tamano: "3 cuerpos",
-    material: "chenille",
-    precio: 33000,
-  },
-];
+  productosDelLocalStorage.push({
+    modelo: "silla matera",
+    tamano: "doble",
+    material: "cuero",
+    precio: 17500,
+  });
 
-const formulario = document.querySelector("#formu");
+  localStorage.setItem("products", JSON.stringify(productosDelLocalStorage));
+  productosDelJSON = productosDelLocalStorage; // LOS PRODUCTOS DEL LOCAL STORAGE SON RECUPERADOS DEL ARCHIVO JSON
+
+}).catch(err => console.log(err));
+
+
+// BUSCO DESDE EL ARRAY DE PRODUCTOS DEL JSON, EL PRODUCTO INGRESADO POR EL USUARIO 
+const formulario = document.getElementById("formulario");
 const boton = document.querySelector("#boton");
 const resultado = document.querySelector("#resultado");
 
-const filtrar = () => {
-  const texto = formulario.value.toLowerCase();
-
-
-for (let producto of product){
-    let modelo = producto.modelo.toLocaleLowerCase();
-    if (modelo.indexOf(texto)  !==-1){
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Tenemos el producto que buscas',
-
-      })
-    }
-    }
-  };
-boton.addEventListener("click", filtrar);
-
-
-// let response;
-// getData().then(resp => console.log(resp));
-
-// console.log(response)
-
-
-
-
-
-//a continuacion traigo los productos desde el archivo .json
-
-function cargarP(){
-  fetch('./public/data.json')
-    .then (respuesta => respuesta.json())
-    .then(respuesta => console.log(respuesta))
-  }
-  
-cargarP();
-
-// a continuacion le agrego 2 productos al ARRAY product, pero en realidad quisiera agregarselos al array que traje del archivo data.json
-
-const recuperadas = localStorage.getItem("product");
-const convertido = JSON.parse(recuperadas);
-
-convertido.push({
-  modelo: "poltrona",
-  tamano: "individual",
-  material: "cuero",
-  precio: 10500,
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
 });
 
-convertido.push({
-  modelo: "silla matera",
-  tamano: "doble",
-  material: "cuero",
-  precio: 17500,
-})
+const filtrar = () => {
+  let producto_encontrado = false;
+  const texto = document.getElementById("formu").value;
 
+  for (let producto of productosDelJSON){
+    let modelo = producto.modelo.toLowerCase();
+      if (modelo.indexOf(texto) !== -1) {
+        producto_encontrado = true;
+        break;
+      }
+  }
 
-localStorage.setItem("articulo Nuevo", JSON.stringify(convertido));
-console.log(convertido);
+  Swal.fire({
+    position: 'center',
+    icon: producto_encontrado ?  'success' : 'error',
+    title: producto_encontrado ? 'Tenemos el producto que buscas, proximamente estara cargado al catalogo digital' : 'No comercializamos el producto que buscas',
+  });
+};
 
-
+boton.addEventListener("click", filtrar);
 
 

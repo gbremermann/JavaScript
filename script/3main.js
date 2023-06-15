@@ -7,28 +7,38 @@ class Suscriptor {
   }
 }
 
-let suscribidos = [];
+localStorage.setItem("suscriptores", JSON.stringify([]))
 
-function aprobarSuscripcion(info) {
+function aprobarSuscripcion() {
   const nombre = document.getElementById("nombre").value;
   const direccion = document.getElementById("direccion").value;
   const email = document.getElementById("email").value;
 
-  const unaOcupacion = suscribidos.find(
-    (e) => e.id.toString() === suscribidos.nombre
+  const suscribidos = JSON.parse(localStorage.getItem("suscriptores"));
+  const existeSuscriptor = suscribidos.find(
+    (suscriptor) => suscriptor.email === email
   );
-  const unSuscriptor = new Suscriptor(
-    suscribidos.length + 1,
-    nombre,
-    direccion,
-    email
-  );
-  
-  suscribidos.push(unSuscriptor);
-  console.log("Que elementos poseee mi array de participantes", suscribidos);
+
+  if (!existeSuscriptor) {
+    const unSuscriptor = new Suscriptor(
+      suscribidos.length + 1,
+      nombre,
+      direccion,
+      email
+    );
+    
+    suscribidos.push(unSuscriptor);
+    localStorage.setItem("suscriptores", JSON.stringify(suscribidos));
+  }
+
+  Swal.fire({
+    position: 'center',
+    icon: !existeSuscriptor ? 'success' : 'error',
+    title: !existeSuscriptor ? 'Suscripción registrada exitosamente' : 'Error: Ya hay un suscriptor registrado con ese email',
+  });
 }
 
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
-  aprobarSuscripcion(e.target);
+  aprobarSuscripcion();
 });

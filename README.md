@@ -4,14 +4,15 @@ Alumno: Guillermo Bremermann
 
 
 
-Luego, se utiliza, mediante el boton Registrarse, se accede a la pagina de suscripciones , y  mediante evento con el boton Enviar, se realiza la suscripcion de los usuarios, y se realiza la carga de los mismos al array de suscriptos.
+Mediante el boton Registrarse, se accede a la pagina html de suscripciones , y  mediante evento con el boton Enviar, se realiza la suscripcion de los usuarios. Mediante el Swal se verifica si el usuario pudo ser Suscripto o no. Siendo la repeticion de correo electronico la razon para no permitirlo. Y se realiza la carga de los mismos al array de suscriptores en el Local Storage.
 
 
 
+Se cargan los archivos en el archivo .json. 
+Desde alli, se recuperan (mediante el uso de promesas , async y await)y se guardan en el LocalStorage.
+Luego los recupero de Local, para cargarle dos articulos nuevos y actualizo el local Storage.
+Esto a la vez, se guardan en la variable product, para que luego el los usuarios del sitio, puedan verificar si contamos con el producto que busca (lo cual responderemos mediante en Swal)
 
-Se trae un array de productos al local Storage. Luego se procede a agregarle un nuevo objeto. Y se lo devuelve al Local Storage, mediante el metodo stringfy. 
-Se utiliza un sweet alert para reponder si se cuenta con el producto que el cliente pone en la busqueda, aunque no logro que el cartel permaneza por mas tiempo.
-
-La asincronia, solo llegue a implementarla en los carteles de sweet alert, que aparece luego  de unos segundos al cargar la pagina.
 
 Se arreglaron los enlaces y se borraron los console.log.
+Se corrige el cierre de div pendiente en el index.html.
